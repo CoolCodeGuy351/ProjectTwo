@@ -39,7 +39,7 @@ module.exports = function(app) {
     include:[{
         model:Category, required: true, attributes: [[db.sequelize.fn('COUNT', sequelize.col('title'), 'count')]]
     }], 
-    group: ['title']
+    group: ['title'],
     orderBy: "count DESC",
     limit: 12
      })

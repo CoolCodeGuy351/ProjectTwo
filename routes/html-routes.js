@@ -14,7 +14,7 @@ module.exports = function(app) {
 
   // index route loads view.html
   app.get("/", function(req, res) {
-    res.render("homepage", {});
+    res.render("userAuth", {});
   });
 
   app.get("/category", function(req, res) {
