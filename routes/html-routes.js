@@ -18,8 +18,10 @@ module.exports = function(app) {
   });
 
   app.get("/category/:threeCategories", function(req, res) {
+// make call with middleware to grab the string in the api
     res.render("category", {
-    	catName: req.params.threeCategories
+    	catName: req.params.threeCategories,
+    	categoryNameData: [{title: "api title string", summary: "api summary string"}]
     });
   });
   // app.get("/category/books", function(req, res) {
@@ -28,6 +30,4 @@ module.exports = function(app) {
   //need to query the db here to grab data
 
 }
-
-
 
