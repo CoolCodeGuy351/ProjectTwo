@@ -36,8 +36,7 @@
     </nav>
     <div class="jumbotron text-center" id="backgroundBooks">
 
-
-        <!-- insert handlebar here grabbing from josh's table with the 3 categories -->
+        <!-- handlebar which displays books/movies/people in jumbotron-->
         <h1>{{catName}}:</h1>
         <ul class = "category-name-container"></ul>
 
@@ -45,7 +44,7 @@
     </div>
     <!-- insert mike code -->
     <div class="row text-center">
-        <h3 align="center">Top 4</h3>
+        <h3 align="center">Todays Top Four:</h3>
         <div class="Top 4" align="center">
             <div class="col-lg-3">
                 <ul>
@@ -76,16 +75,17 @@
     <div class="row text-center">
         <div class="col-sm-3">
         </div>
-        <div class="col-sm-6">
+        <div class="col-sm-6">                       
             <div class="form-group text-left">
                 <label for="usr">Name:</label>
                 <input type="text" class="form-control" id="userImputTitle" name="title">
             </div>
             <div class="form-group text-left">
-                <label for="pwd">Summary:</label>
+                <label for="pwd">Summary</label>
                 <input type="text" class="form-control" id="userImputSummary" name="summary">
             </div>
             <button type="submit" class="btn btn-default">create</button>
+            <!-- this will prepend the recently submitted name/summary to the CategoryNameData page -->
         </div>
         <div class="col-sm-3">
         </div>
@@ -93,11 +93,13 @@
     <div class="container-fluid bg-grey">
         <div class="row text-center">
             <div class="col-sm-2"></div>
-            <!-- every time we add a new post, it needs to be be dynamically and displayed here -->
+            <!-- every time we add a new post, it needs to be be dynamically and displayed here. we will display last ten submitted summaries, -->
             <div class="col-sm-8">
-                <h2><strong>1984 </strong></h2>
-                <h4><strong>characters live in a dystopia and government runs their lives</strong></h4>
+                     {{#each categoryNameData}}
+                <h2><strong>{{title}} </strong></h2>
+                <h4><strong>{{summary}}</strong></h4>
                     <br>
+                    {{/each}}
                     <!-- second hard coded example that would be created dynamically -->
                 <h2><strong>animal farm </strong></h2>
                 <h4><strong>orwell illustrated that communism fails and involves several different animals and makes it an easy and digestable read for stupid people</strong></h4>
