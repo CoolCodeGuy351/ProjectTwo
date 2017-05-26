@@ -13,19 +13,28 @@ var db = require("../models");
 module.exports = function(app) {
 
   // index route loads view.html
+ 
   app.get("/", function(req, res) {
     res.render("userAuth", {});
   });
 
+  
   app.get("/home", function(req, res) {
     res.render("homepage", {});
-  });
+    });
+  
 
- app.get("/category/:threeCategories", function(req, res) {
+  app.get("/category/:threeCategories", function(req, res) {
+// make call with middleware to grab the string in the api
     res.render("category", {
-        catName: req.params.threeCategories,
-        categoryNameData: [{title: "api title string", summary: "api summary string"}]
+    	catName: req.params.threeCategories,
+    	// catTopFour: 
+    	categoryNameData: [{title: "api title string", summary: "api summary string"}]
     });
   });
+  // app.get("/category/books", function(req, res) {
+  //   res.render("category", {});
+  // });
+  //need to query the db here to grab data
 
 }
