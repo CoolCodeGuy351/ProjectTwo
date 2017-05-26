@@ -1,44 +1,70 @@
+    <head>
+    <title>project two</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <!-- google fonts "Montserrat" and "Lato" -->
+    <link rel="stylesheet" type="text/css" href="css/styleCategory.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+</head>
+<!-- Add scrollspy to <body> to automatically update navbar links when scrolling -->
+
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
                 <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
                 <a href="#" class="navbar-brand">projectTWO!</a>
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav navbar-right">
-                <!-- this search needs to search the table where all posts go to and then take us to localhost/posts/whatIsSearched -->
                     <input type="text" class="form-control" placeholder="Search">
-                    <button type="submit" class="btn btn-default">Submit</button>
-                </ul>
+                    <!-- rather than have a submit button, user must hit 'enter' -->
+<!--                     <button type="submit" class="btn btn-default">Submit</button>
+ -->                </ul>
             </div>
         </div>
     </nav>
-    <div class="jumbotron text-center">
-        <h1>one sentence stories</h1>
-        <p>making one sentence stories</p>
+    <div class="jumbotron text-center" id="backgroundBooks">
+        <!-- insert handlebar here grabbing from josh's table with the 3 categories -->
+        <h1>Category:</h1>
     </div>
-    <div id="portfolio" class="container-fluid text-center bg-grey">
-        <h2>categories</h2>
-        <div class="row">
-            <div class="col-sm-4">
-                <div class="thumbnail">
-                    <img src="http://www.rd.com/wp-content/uploads/sites/2/2016/04/sloths-slide1SamTrull.jpg" alt="Image1" class="img-thumbnail" />
-                    <p><strong>books</strong></p>
-                </div>
+    <!-- insert mike code -->
+    <div class="row text-center">
+        <h3 align="center">Top 4</h3>
+        <div class="Top 4" align="center">
+            <div class="col-lg-3">
+                <ul>
+                    <li>item one</li>
+                    <li>here we will display the the text that is related to the item , the short summary that is entered by the user</li>
+                </ul>
             </div>
-            <div class="col-sm-4">
-                <div class="thumbnail">
-                    <img src="https://www.biography.com/.image/t_share/MTQ0ODc5NDc2MTY0MDExODE4/neil_gorsuch_photo_bloomberg_via_getty_images_633221570.jpg" alt="Image1" class="img-thumbnail" />
-                    <p><strong>movies</strong></p>
-                </div>
+            <div class="col-lg-3">
+                <ul>
+                    <li>item two</li>
+                    <li>here we will display the the text that is related to the item , the short summary that is entered by the user</li>
+                </ul>
             </div>
-            <div class="col-sm-4">
-                <div class="thumbnail">
-                    <img src="http://theurbantwist.com/wp-content/uploads/2017/04/04132017-lebron-james.jpeg" alt="Image1" class="img-thumbnail" />
-                    <p><strong>people</strong></p>
-                </div>
+            <div class="col-lg-3">
+                <ul>
+                    <li>item three</li>
+                    <li>here we will display the the text that is related to the item , the short summary that is entered by the user</li>
+                </ul>
+            </div>
+            <div class="col-lg-3">
+                <ul>
+                    <li>item four</li>
+                    <li>here we will display the the text that is related to the item , the short summary that is entered by the user</li>
+                </ul>
             </div>
         </div>
     </div>
@@ -46,22 +72,40 @@
         <div class="col-sm-3">
         </div>
         <div class="col-sm-6">
-            <div class="form-group">
-                <label for="usr">Name of Book:</label> 
-                <input type="text" class="form-control" id="usr" name="title">
+            <div class="form-group text-left">
+                <label for="usr">Name:</label>
+                <input type="text" class="form-control" id="userImputTitle" name="title">
             </div>
-            <div class="form-group">
-                <label for="pwd">One Sentence Summary:</label>
-                <input type="text" class="form-control" id="pwd" name ="summary">
+            <div class="form-group text-left">
+                <label for="pwd">Summary:</label>
+                <input type="text" class="form-control" id="userImputSummary" name="summary">
             </div>
             <button type="submit" class="btn btn-default">create</button>
         </div>
         <div class="col-sm-3">
         </div>
     </div>
+    <div class="container-fluid bg-grey">
+        <div class="row text-center">
+            <div class="col-sm-2"></div>
+            <!-- every time we add a new post, it needs to be be dynamically and displayed here -->
+            <div class="col-sm-8">
+                <h2><strong>1984 </strong></h2>
+                <h4><strong>characters live in a dystopia and government runs their lives</strong></h4>
+                    <br>
+                    <!-- second hard coded example that would be created dynamically -->
+                <h2><strong>animal farm </strong></h2>
+                <h4><strong>orwell illustrated that communism fails and involves several different animals and makes it an easy and digestable read for stupid people</strong></h4>
+            </div>
+            <!-- end of new creation -->
+            <div class="col-sm-2"></div>
+        </div>
+    </div>
     <br>
-    <footer>
+    <footer class="footer text-center">
         <p>insert footer here</p>
     </footer>
-    <!-- paste two -->
+
+    </body>
+
 </html>
