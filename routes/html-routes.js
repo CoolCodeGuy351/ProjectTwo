@@ -13,9 +13,15 @@ var db = require("../models");
 module.exports = function(app) {
 
   // index route loads view.html
+ 
+  app.get("/", function(req, res) {
+    res.render("userAuth", {});
+  });
+  
   app.get("/home", function(req, res) {
     res.render("homepage", {});
-  });
+    });
+  
 
   app.get("/category/:threeCategories", function(req, res) {
 // make call with middleware to grab the string in the api
