@@ -14,7 +14,15 @@ module.exports = function(app) {
 
   // index route loads view.html
   app.get("/", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/index.html"));
+    res.render("homepage", {});
   });
+
+  app.get("/category", function(req, res) {
+    res.render("category", {});
+  });
+
+
 }
+
+
 
