@@ -13,7 +13,7 @@ var db = require("../models");
 module.exports = function(app) {
 
   // index route loads view.html
-  app.get("/", function(req, res) {
+  app.get("/home", function(req, res) {
     res.render("homepage", {});
   });
 
@@ -21,6 +21,7 @@ module.exports = function(app) {
 // make call with middleware to grab the string in the api
     res.render("category", {
     	catName: req.params.threeCategories,
+    	// catTopFour: 
     	categoryNameData: [{title: "api title string", summary: "api summary string"}]
     });
   });
