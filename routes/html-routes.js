@@ -17,10 +17,15 @@ module.exports = function(app) {
     res.render("homepage", {});
   });
 
-  app.get("/category", function(req, res) {
-    res.render("category", {});
+  app.get("/category/:threeCategories", function(req, res) {
+    res.render("category", {
+    	catName: req.params.threeCategories
+    });
   });
-
+  // app.get("/category/books", function(req, res) {
+  //   res.render("category", {});
+  // });
+  //need to query the db here to grab data
 
 }
 
