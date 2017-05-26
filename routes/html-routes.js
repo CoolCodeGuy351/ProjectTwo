@@ -17,12 +17,15 @@ module.exports = function(app) {
     res.render("userAuth", {});
   });
 
-  app.get("/category", function(req, res) {
-    res.render("category", {});
+  app.get("/home", function(req, res) {
+    res.render("homepage", {});
   });
 
+ app.get("/category/:threeCategories", function(req, res) {
+    res.render("category", {
+        catName: req.params.threeCategories,
+        categoryNameData: [{title: "api title string", summary: "api summary string"}]
+    });
+  });
 
 }
-
-
-
