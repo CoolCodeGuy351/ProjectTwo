@@ -22,7 +22,7 @@ module.exports = {
                 }],
                 group: ['title'],
                 orderBy: "count DESC",
-                limit: 12
+                limit: 4
             })
     }
 }
