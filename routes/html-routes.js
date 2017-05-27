@@ -35,7 +35,6 @@ app.get('/callback',
 
 /////////////// Added by Joe for auto0 //////////////////////
 
-
     // index route loads view.html
     app.get("/", function(req, res) {
         res.render("userAuth", {});
@@ -60,5 +59,6 @@ app.get('/callback',
             })
         });
     });
+
 }
 
