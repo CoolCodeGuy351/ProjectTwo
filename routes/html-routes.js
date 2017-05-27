@@ -14,23 +14,23 @@ var apiRoutes = require('./api-routes.js')
 // =============================================================
 module.exports = function(app) {
 
-  /////////////// Added by Joe for auto0 //////////////////////
-app.get('/login',
+    /////////////// Added by Joe for auto0 //////////////////////
+    app.get('/login',
     function(req, res) {
         res.render('login', { env: process.env });
     });
 
-// Perform session logout and redirect to homepage
-app.get('/logout', function(req, res) {
+    // Perform session logout and redirect to homepage
+    app.get('/logout', function(req, res) {
     req.logout();
-    res.redirect('/');
-});
+    res.redirect('/home');
+    });
 
-// Perform the final stage of authentication and redirect to '/user'
-app.get('/callback',
+    // Perform the final stage of authentication and redirect to '/user'
+    app.get('/callback',
     passport.authenticate('auth0', { failureRedirect: '/url-if-something-fails' }),
     function(req, res) {
-        res.redirect(req.session.returnTo || '/user');
+        res.redirect(req.session.returnTo || '/home');
     });
 
 /////////////// Added by Joe for auto0 //////////////////////
