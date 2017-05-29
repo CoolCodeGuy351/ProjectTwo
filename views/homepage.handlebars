@@ -37,7 +37,7 @@
         <p>making one sentence stories</p>
     </div>
     <div id="portfolio" class="container-fluid text-center bg-grey">
-        <h2>categories</h2>
+        <h2>Welcome, {{user.username}}</h2>
         <div class="row">
             <div class="col-sm-4">
                 <div class="thumbnail">
@@ -53,7 +53,7 @@
             </div>
             <div class="col-sm-4">
                 <div class="thumbnail">
-                    <img src="http://theurbantwist.com/wp-content/uploads/2017/04/04132017-lebron-james.jpeg" alt="Image1" class="img-thumbnail" />
+                    <a href="/category/people"><img src="http://theurbantwist.com/wp-content/uploads/2017/04/04132017-lebron-james.jpeg" alt="Image1" class="img-thumbnail" /></a>
                     <p><strong>people</strong></p>
                 </div>
             </div>
@@ -83,5 +83,7 @@
     <!-- paste two -->
 
     </body>
-
+    <script>
+        console.log(profile);
+    </script>
 </html>

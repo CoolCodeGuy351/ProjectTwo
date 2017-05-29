@@ -42,35 +42,35 @@ module.exports = function(app) {
 
     // Get route for returning summaries of a specific category
 
-    // app.get("/category/:category", function(req, res) {
-    //   db.Summary.findAll({
-    //     where: {
-    //       category: req.params.category
-    //     }
-    //   })
-    //   .then(function() {
-    //     res.redirect('/category');
-    //   });
-    // });
+    app.get("/category/:category", function(req, res) {
+      db.Summary.findAll({
+        where: {
+          category: req.params.category
+        }
+      })
+      .then(function() {
+        res.redirect('/category');
+      });
+    });
 
-    //NEED TO TEST THIS OUT
-    // app.get("/category/top12/:category", function(req, res) {
-    //     db.Summary.findAndCountAll({
-    //             include: [{
-    //                 model: Category,
-    //                 required: true,
-    //                 attributes: [
-    //                     [db.sequelize.fn('COUNT', sequelize.col('title'), 'count')]
-    //                 ]
-    //             }],
-    //             group: ['title'],
-    //             orderBy: "count DESC",
-    //             limit: 12
-    //         })
-    //         .then(function() {
-    //             res.redirect('/category');
-    //         });
-    // });
+    // NEED TO TEST THIS OUT
+    app.get("/category/top12/:category", function(req, res) {
+        db.Summary.findAndCountAll({
+                include: [{
+                    model: Category,
+                    required: true,
+                    attributes: [
+                        [db.sequelize.fn('COUNT', sequelize.col('title'), 'count')]
+                    ]
+                }],
+                group: ['title'],
+                orderBy: "count DESC",
+                limit: 12
+            })
+            .then(function() {
+                res.redirect('/category');
+            });
+    });
 
 
     // Get route for retrieving a single title
