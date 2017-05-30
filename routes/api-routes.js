@@ -87,18 +87,28 @@ module.exports = function(app) {
         });
 
         // POST route for saving a new post
-        //DONE
+        // id should come from local storage
+        //category id will have to look up in the category table to find the ID
+
+
         app.post("/post", function(req, res) {
             console.log(req.body);
+            db.Category.findOne({
+                where: {
+                    category: req.body.categName
+                }
+            }).then(function(data){
+                
             db.Summary.create({
                     title: req.body.title,
                     summary: req.body.summary,
-                    // CategoryId: req.body.catName,
+                    CategoryId: data.dataValues.id,
                     // AuthorId: req.body.AuthorId
                 })
                 .then(function() {
                     res.redirect('/home');
                 });
+            });
         });
 
         // DELETE route for deleting posts
@@ -127,21 +137,18 @@ module.exports = function(app) {
                 });
         });
 
-
-
-
-
         // =============================================================
         //                  LOGIN
         // =============================================================
 
         // on sign in. going to have to create a link from the login that links to the homepage on the submit click
         // make an if/else statement to send the user an error message or page if they mess up on the sign in.
+
         app.get('/login', function(req, res) {
                     db.Author.findOne({
                         where: {
-                            username: req.body.username,
-                            password: req.body.password
+                            username: req.body.user,
+                            password: req.body.pass
                         }.then(function() {
                             res.redirect('/home');
                         })
