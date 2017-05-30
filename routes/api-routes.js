@@ -144,25 +144,27 @@ module.exports = function(app) {
         // on sign in. going to have to create a link from the login that links to the homepage on the submit click
         // make an if/else statement to send the user an error message or page if they mess up on the sign in.
 
-        app.get('/login', function(req, res) {
+        app.post('/login', function(req, res) {
                     db.Author.findOne({
                         where: {
                             username: req.body.user,
                             password: req.body.pass
-                        }.then(function() {
-                            res.redirect('/home');
+                        }.then(function(data) {
+                            res.json(data);
                         })
                     });
                 })
 
 
-                app.post('/register', function(req, res) {
+                /////////////////////////////////////////
+
+            app.post('/register', function(req, res) {
                     db.Author.create({
                         username: req.body.username,
                         password: req.body.password,
                         email: req.body.email,
-                    }).then(function() {
-                        res.redirect('/home');
+                    }).then(function(data) {
+                        res.json(data);
                     });
                 });
             }
