@@ -33,7 +33,7 @@ padding-top: 10%;
 
 min-height: 100%;
 background-color: #f4511e;
-color: white;
+color: black;
 font-size: 100px;
 }
 
@@ -43,8 +43,8 @@ font-size: 100px;
 /****** LOGIN MODAL ******/
 .loginmodal-container {
   padding: 30px;
-  max-width: 350px;
-  width: 100% !important;
+/*  max-width: 350px;
+*/  width: 100% !important;
   background-color: #F7F7F7;
   margin: 0 auto;
   border-radius: 2px;
