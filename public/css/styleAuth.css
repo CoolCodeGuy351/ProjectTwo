@@ -1,6 +1,6 @@
 body {
 
-  background-color: #f4511e;
+  background-color: #610202;
 
 }
 
@@ -8,7 +8,7 @@ body {
 .navbar {
   font-family: Montserrat, sans-serif;
   margin-bottom: 0 !important;
-  background-color: #f4511e !important;
+  background-color: #610202 !important;
   z-index: 9999 !important;
   border: 0 !important;
   font-size: 12px !important;
@@ -20,7 +20,7 @@ body {
   color: #fff !important;
 }
 .navbar-nav li a:hover, navbar-nav li.active a {
-  color: #f4511e !important;
+  color: #610202 !important;
   background-color: #fff !important;
 }
 .navbar-default, .navbar-toggle {
@@ -31,7 +31,7 @@ body {
 #main-section{
 padding-top: 10%;
 min-height: 100%;
-background-color: #f4511e;
+background-color: #610202;
 }
 
 /* Modal stuff */ 

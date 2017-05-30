@@ -16,28 +16,33 @@
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
 
     <nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="myNavbar">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a href="#" class="navbar-brand"></a>
-            </div>
+        <div class="container in-line">
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav text-center">
+                <!-- homepage button -->
                     <div class="form-control">
                         <a href="/home">
                         <p><strong>homepage</strong></p></a>
-                    </div>
-                 <h1>{{catName}}: </h1>
+                     </div>
                 </ul>
-                <ul class="nav navbar-nav navbar-right">
+            </div> 
+            <!-- search bar -->
+            <div class= "in-line">
+                    <ul class="nav navbar-nav navbar-right">
                     <input type="text" class="form-control" placeholder="Search">
                     <a href="/search"><button type="submit" class="btn btn-default" name="search">Submit</button></a>
-                </ul>
+                    </ul>
+           </div>
+              <!-- displayed name -->
+            <div class="row text-center in-line">
+                    <div class="col-lg-5"> </div>
+                   
+                    <div class="col-lg-2">
+                        <h1>{{catName}}</h1>
+                    </div>
+                    <div class="col-lg-5"></div>
             </div>
+        </div>
     </nav>
     <div class="jumbotron text-center" id="background">
         <ul class = "category-name-container"></ul>
