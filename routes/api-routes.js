@@ -79,8 +79,7 @@ module.exports = function(app) {
                         AuthorId: req.body.authId
                     })
                     .then(function() {
-                        res.redirect('/home');
-                        // ********************* can we /category/:threeCategories in place of home ****
+                        res.redirect(req.get('referer'));
                     });
             });
         });
