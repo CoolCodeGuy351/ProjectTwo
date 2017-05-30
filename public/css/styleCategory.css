@@ -15,7 +15,7 @@ body {
   line-height: 1.42857143 !important;
   letter-spacing: 4px;
   border-radius: 0;
-  padding-bottom: 2%;
+  padding-bottom: 1%;
   padding-top: 2%;
 }
 .navbar li a, .navbar .navbar-brand {
@@ -29,9 +29,14 @@ body {
   border-color: transparent !important;
   color: #fff !important;
 }
+element.style {
+  margin-top: 6% !important;
+}
+
 p {
   color: #610202 !important;/*dark red*/
 }
+
 /* Jumbotron */
 .jumbotron {
   margin-top: 5%;

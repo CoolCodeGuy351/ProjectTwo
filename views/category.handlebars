@@ -35,56 +35,54 @@
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <input type="text" class="form-control" placeholder="Search">
-                    <a href="/search"><button type="submit" class="btn btn-default" name="search"> Submit</button></a>
+                    <a href="/search"><button type="submit" class="btn btn-default" name="search">Submit</button></a>
                 </ul>
             </div>
     </nav>
     <div class="jumbotron text-center" id="background">
-
         <ul class = "category-name-container"></ul>
     </div>
     <br>
-<!-- ****row that contains all information for top four:**** -->
-
-    <!--     <div class="row text-center">
-            <h3 align="center">Top Four in {{catName}}</h3>
-            <div class="top-4-list" align="center"> -->
-    <!-- 
-            {{#each top4}}
-                <div class="col-sm-3">
-                    <h2><strong>{{this.title}} </strong></h2>
-                    <h4><strong>{{this.summary}}</strong></h4>
-                        <br>
-                </div>
-            {{/each}}
-     -->
-      <!--           <div class="col-lg-3">
-                    <ul>
-                        <li>item one</li>
-                        <li>here we will display the the text that is related to the item , the short summary that is entered by the user</li>
-                    </ul>
-                </div>
-                <div class="col-lg-3">
-                    <ul>
-                        <li>item two</li>
-                        <li>here we will display the the text that is related to the item , the short summary that is entered by the user</li>
-                    </ul>
-                </div>
-                <div class="col-lg-3">
-                    <ul>
-                        <li>item three</li>
-                        <li>here we will display the the text that is related to the item , the short summary that is entered by the user</li>
-                    </ul>
-                </div>
-                <div class="col-lg-3">
-                    <ul>
-                        <li>item four</li>
-                        <li>here we will display the the text that is related to the item , the short summary that is entered by the user</li>
-                    </ul>
-                </div>
+    <!-- row that contains all information for top four: -->
+<!--     <div class="row text-center">
+        <h3 align="center">Top Four in {{catName}}</h3>
+        <div class="top-4-list" align="center"> -->
+<!-- 
+        {{#each top4}}
+            <div class="col-sm-3">
+                <h2><strong>{{this.title}} </strong></h2>
+                <h4><strong>{{this.summary}}</strong></h4>
+                    <br>
             </div>
-        </div> -->
-<!-- ****end row top four: ****-->
+        {{/each}}
+ -->
+  <!--           <div class="col-lg-3">
+                <ul>
+                    <li>item one</li>
+                    <li>here we will display the the text that is related to the item , the short summary that is entered by the user</li>
+                </ul>
+            </div>
+            <div class="col-lg-3">
+                <ul>
+                    <li>item two</li>
+                    <li>here we will display the the text that is related to the item , the short summary that is entered by the user</li>
+                </ul>
+            </div>
+            <div class="col-lg-3">
+                <ul>
+                    <li>item three</li>
+                    <li>here we will display the the text that is related to the item , the short summary that is entered by the user</li>
+                </ul>
+            </div>
+            <div class="col-lg-3">
+                <ul>
+                    <li>item four</li>
+                    <li>here we will display the the text that is related to the item , the short summary that is entered by the user</li>
+                </ul>
+            </div>
+        </div>
+    </div> -->
+    <!-- end row top four: -->
 
     <div class="row text-center">
         <div class="col-sm-3">
@@ -100,12 +98,12 @@
                 <input type="text" class="form-control" id="userImputSummary" name="summary">
                 <input type="hidden" class="form-control" id="catName" name="categName" value="{{catName}}">
                 <input type="hidden" class="form-control" id="authId" name="authId">
-
             </div>
-            <button type="submit" class="btn btn-default">Create</button>
+            <button type="submit" id= "submitTitleSummary" class="btn btn-default">Create</button>
             <!-- this will prepend the recently submitted name/summary to the CategoryNameData page -->
         </div>
 </form>
+
         <div class="col-sm-3">
         </div>
     </div>
@@ -113,10 +111,7 @@
         <div class="row text-center">
             <div class="col-sm-2"></div>
 
-
             <!-- every time we add a new post, we need to make jquery post the following below -->
-
-
             <div class="col-sm-8">
                      {{#each categoryNameData}}
                      <!-- title and summary grabbed from html-routes -->
@@ -137,8 +132,25 @@
     </footer>
 
     <script>
+
+    // change background image according to the category
         $('#background').css('background-image', 'url("/css/{{catName}}.jpg")');
         $('#authId').val(localStorage.authorId);
+
+            //if title empty, alert pops up 
+        $('#submitTitleSummary').click(function(){
+            if ($.trim($('#userImputTitle').val()) == '') {
+                alert('imput a title');
+                }
+        });
+            //if summary empty, alert pops up 
+        $('#submitTitleSummary').click(function(){
+            if($.trim($('#userImputSummary').val()) == ''){
+                alert('imput a summary');
+                }
+        });
+
+
     </script>
     </body>
 

@@ -7,37 +7,10 @@
 
 // Requiring our Todo model
 var db = require("../models");
-
+var bcrypt = require('bcryptjs');
 // Routes
 // =============================================================
-// module.exports = {
-//     findCountAll: function(req, res, next) {
-//         return db.Summary.findAndCountAll({
-//             include: [{
-//                 model: Category,
-//                 required: true,
-//                 attributes: [
-//                     [db.sequelize.fn('COUNT', sequelize.col('title'), 'count')]
-//                 ]
-//             }],
-//             group: ['title'],
-//             orderBy: "count DESC",
-//             limit: 4
-//         })
-//     },
-//     search: function() {
-//         return db.Summary.findAll({
-//                 where: {
-//                     title: req.body.search
-//                 }
-//             })
-//             .then(function() {
-//                 res.redirect('/category');
-//             });
 
-//     }
-
-// }
 module.exports = function(app) {
 
         // Get route for returning summaries of a specific category
@@ -107,6 +80,7 @@ module.exports = function(app) {
                     })
                     .then(function() {
                         res.redirect('/home');
+                        // ********************* can we /category/:threeCategories in place of home ****
                     });
             });
         });
@@ -147,22 +121,28 @@ module.exports = function(app) {
         app.post('/login', function(req, res) {
             db.Author.findOne({
                 where: {
-                    username: req.body.user,
-                    password: req.body.pass
-                }.then(function(data) {
+                    username: req.body.user
+                }
+            }).then(function(data) {
+                bcrypt.compare(req.body.pass, data.password, function(err, res) {
                     res.json(data);
+                });
 
-                })
-            });
-        })
+            })
+        });
 
         app.post('/register', function(req, res) {
-            db.Author.create({
-                username: req.body.username,
-                password: req.body.password,
-                email: req.body.email,
-            }).then(function(data) {
-                res.json(data);
+            bcrypt.genSalt(10, function(err, salt) {
+                bcrypt.hash(req.body.password, salt, function(err, hash) {
+                                // Store hash in your password DB. 
+                    db.Author.create({
+                        username: req.body.username,
+                        password: hash,
+                        email: req.body.email,
+                    }).then(function(data) {
+                        res.json(data);
+                    });
+                });
             });
         });
     }
@@ -197,5 +177,36 @@ module.exports = function(app) {
 
 // }
 
+
+// }
+
+
+
+// module.exports = {
+//     findCountAll: function(req, res, next) {
+//         return db.Summary.findAndCountAll({
+//             include: [{
+//                 model: Category,
+//                 required: true,
+//                 attributes: [
+//                     [db.sequelize.fn('COUNT', sequelize.col('title'), 'count')]
+//                 ]
+//             }],
+//             group: ['title'],
+//             orderBy: "count DESC",
+//             limit: 4
+//         })
+//     },
+//     search: function() {
+//         return db.Summary.findAll({
+//                 where: {
+//                     title: req.body.search
+//                 }
+//             })
+//             .then(function() {
+//                 res.redirect('/category');
+//             });
+
+//     }
 
 // }
