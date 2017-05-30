@@ -140,8 +140,15 @@ module.exports = function(app) {
                     });
                 }
 
-
-
+                app.post('/loginPage', function(req, res) {
+                        db.Author.create({
+                                username: req.body.username,
+                                password: req.body.password
+                            }.then(function() {
+                                res.render("homepage", {});
+                            })
+                        });
+                }
 
 
 
