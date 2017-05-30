@@ -103,7 +103,7 @@ module.exports = function(app) {
                         title: req.body.title,
                         summary: req.body.summary,
                         CategoryId: data.dataValues.id,
-                        AuthorId: req.body.AuthorId
+                        AuthorId: req.body.authId
                     })
                     .then(function() {
                         res.redirect('/home');
@@ -151,17 +151,17 @@ module.exports = function(app) {
                     password: req.body.pass
                 }.then(function(data) {
                     res.json(data);
+
                 })
             });
         })
-
 
         app.post('/register', function(req, res) {
             db.Author.create({
                 username: req.body.username,
                 password: req.body.password,
                 email: req.body.email,
-            }).then(function() {
+            }).then(function(data) {
                 res.json(data);
             });
         });
