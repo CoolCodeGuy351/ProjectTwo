@@ -10,34 +10,7 @@ var db = require("../models");
 
 // Routes
 // =============================================================
-// module.exports = {
-//     findCountAll: function(req, res, next) {
-//         return db.Summary.findAndCountAll({
-//             include: [{
-//                 model: Category,
-//                 required: true,
-//                 attributes: [
-//                     [db.sequelize.fn('COUNT', sequelize.col('title'), 'count')]
-//                 ]
-//             }],
-//             group: ['title'],
-//             orderBy: "count DESC",
-//             limit: 4
-//         })
-//     },
-//     search: function() {
-//         return db.Summary.findAll({
-//                 where: {
-//                     title: req.body.search
-//                 }
-//             })
-//             .then(function() {
-//                 res.redirect('/category');
-//             });
 
-//     }
-
-// }
 module.exports = function(app) {
 
         // Get route for returning summaries of a specific category
@@ -107,6 +80,7 @@ module.exports = function(app) {
                     })
                     .then(function() {
                         res.redirect('/home');
+                        // ********************* can we /category/:threeCategories in place of home ****
                     });
             });
         });
@@ -197,5 +171,36 @@ module.exports = function(app) {
 
 // }
 
+
+// }
+
+
+
+// module.exports = {
+//     findCountAll: function(req, res, next) {
+//         return db.Summary.findAndCountAll({
+//             include: [{
+//                 model: Category,
+//                 required: true,
+//                 attributes: [
+//                     [db.sequelize.fn('COUNT', sequelize.col('title'), 'count')]
+//                 ]
+//             }],
+//             group: ['title'],
+//             orderBy: "count DESC",
+//             limit: 4
+//         })
+//     },
+//     search: function() {
+//         return db.Summary.findAll({
+//                 where: {
+//                     title: req.body.search
+//                 }
+//             })
+//             .then(function() {
+//                 res.redirect('/category');
+//             });
+
+//     }
 
 // }
