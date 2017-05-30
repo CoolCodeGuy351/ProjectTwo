@@ -10,34 +10,34 @@ var db = require("../models");
 
 // Routes
 // =============================================================
-module.exports = {
-    findCountAll: function(req, res, next) {
-        return db.Summary.findAndCountAll({
-            include: [{
-                model: Category,
-                required: true,
-                attributes: [
-                    [db.sequelize.fn('COUNT', sequelize.col('title'), 'count')]
-                ]
-            }],
-            group: ['title'],
-            orderBy: "count DESC",
-            limit: 4
-        })
-    },
-    search: function() {
-        return db.Summary.findAll({
-                where: {
-                    title: req.body.search
-                }
-            })
-            .then(function() {
-                res.redirect('/category');
-            });
+// module.exports = {
+//     findCountAll: function(req, res, next) {
+//         return db.Summary.findAndCountAll({
+//             include: [{
+//                 model: Category,
+//                 required: true,
+//                 attributes: [
+//                     [db.sequelize.fn('COUNT', sequelize.col('title'), 'count')]
+//                 ]
+//             }],
+//             group: ['title'],
+//             orderBy: "count DESC",
+//             limit: 4
+//         })
+//     },
+//     search: function() {
+//         return db.Summary.findAll({
+//                 where: {
+//                     title: req.body.search
+//                 }
+//             })
+//             .then(function() {
+//                 res.redirect('/category');
+//             });
 
-    }
+//     }
 
-}
+// }
 module.exports = function(app) {
 
         // Get route for returning summaries of a specific category
@@ -97,17 +97,17 @@ module.exports = function(app) {
                 where: {
                     category: req.body.categName
                 }
-            }).then(function(data){
-                
-            db.Summary.create({
-                    title: req.body.title,
-                    summary: req.body.summary,
-                    CategoryId: data.dataValues.id,
-                    // AuthorId: req.body.AuthorId
-                })
-                .then(function() {
-                    res.redirect('/home');
-                });
+            }).then(function(data) {
+
+                db.Summary.create({
+                        title: req.body.title,
+                        summary: req.body.summary,
+                        CategoryId: data.dataValues.id,
+                        AuthorId: req.body.AuthorId
+                    })
+                    .then(function() {
+                        res.redirect('/home');
+                    });
             });
         });
 
@@ -144,58 +144,58 @@ module.exports = function(app) {
         // on sign in. going to have to create a link from the login that links to the homepage on the submit click
         // make an if/else statement to send the user an error message or page if they mess up on the sign in.
 
-        app.get('/login', function(req, res) {
-                    db.Author.findOne({
-                        where: {
-                            username: req.body.user,
-                            password: req.body.pass
-                        }.then(function() {
-                            res.redirect('/home');
-                        })
-                    });
+        app.post('/login', function(req, res) {
+            db.Author.findOne({
+                where: {
+                    username: req.body.user,
+                    password: req.body.pass
+                }.then(function(data) {
+                    res.json(data);
                 })
+            });
+        })
 
 
-                app.post('/register', function(req, res) {
-                    db.Author.create({
-                        username: req.body.username,
-                        password: req.body.password,
-                        email: req.body.email,
-                    }).then(function() {
-                        res.redirect('/home');
-                    });
-                });
-            }
-            // end of module.exports
+        app.post('/register', function(req, res) {
+            db.Author.create({
+                username: req.body.username,
+                password: req.body.password,
+                email: req.body.email,
+            }).then(function() {
+                res.json(data);
+            });
+        });
+    }
+    // end of module.exports
 
 
-        //on submit button
+//on submit button
 
-        // var syllables = [],
-        // var syllableCount = 0
-        // for (var i = 0; i < syllables.length; i++) {
-        // var queryURL = "https://wordsapiv1.p.mashape.com/words/" + syllables[i] + "/syllables";
-        // $.ajax({
-        //   url: queryURL,
-        //   method: "GET"
-        //   }).done(function (syllables) {
-        //     console.log(syllables.syllables.count)
-        //     syllableCount += syllables.syllables.count
-        //   })
+// var syllables = [],
+// var syllableCount = 0
+// for (var i = 0; i < syllables.length; i++) {
+// var queryURL = "https://wordsapiv1.p.mashape.com/words/" + syllables[i] + "/syllables";
+// $.ajax({
+//   url: queryURL,
+//   method: "GET"
+//   }).done(function (syllables) {
+//     console.log(syllables.syllables.count)
+//     syllableCount += syllables.syllables.count
+//   })
 
-        //   if (syllableCount === 14) {
-        //      db.Summary.create({
-        //               title: req.body.title,
-        //               summary: req.body.summary
-        //           })
-        //           .then(function() {
-        //               res.redirect('/category');
-        //           });
-        //   } else {
-        // console.log("This isn't 14 syllables, try again")
-        // }
+//   if (syllableCount === 14) {
+//      db.Summary.create({
+//               title: req.body.title,
+//               summary: req.body.summary
+//           })
+//           .then(function() {
+//               res.redirect('/category');
+//           });
+//   } else {
+// console.log("This isn't 14 syllables, try again")
+// }
 
-        // }
+// }
 
 
-        // }
+// }
