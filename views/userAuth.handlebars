@@ -43,15 +43,15 @@
     </nav>
     <div class="col text-center" id="main-section">
 
-        <h1 style="font-size: 60px;">One Sentence Stories</h1>
+        <h1 id="title-line"">One Sentence Stories</h1>
         <!-- Button 1 Modal -->
-        <a href="#" data-toggle="modal" data-target="#login-modal">Login</a>
+        <a href="#" class="login-text" data-toggle="modal" data-target="#login-modal">Login</a>
           <!-- Modal -->
         <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
             <div class="modal-dialog">
                 <div class="loginmodal-container">
                     <p>Login to Your Account</p><br>
-                  <form action="/login" method="POST">
+                  <form>
                     <input type="text" name="user" placeholder="Username">
                     <input type="password" name="pass" placeholder="Password">
                     <input type="submit" name="login" class="login loginmodal-submit" value="Login">
@@ -63,14 +63,15 @@
         </div>
 
         <!-- Register -->
-        <a href="#" data-toggle="modal" data-target="#register-modal">Register</a>
+        <a href="#" class="login-text" data-toggle="modal" data-target="#register-modal">Register</a>
           <!-- Modal -->
         <div class="modal fade" id="register-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
             <div class="modal-dialog">
                 <div class="loginmodal-container">
                     <p>Register</p><br>
-                  <form id="registerForm" action="/register" method="POST">
+                  <form id="registerForm">
                     <input type="text" name="username" placeholder="Username">
+                    <input type="text" name="email" placeholder="Email">
                     <input type="password" name="password" placeholder="Password">
                     <input type="submit" name="register" class="login loginmodal-submit" value="Login">
                   </form>
