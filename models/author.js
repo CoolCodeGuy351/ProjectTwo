@@ -1,20 +1,13 @@
 module.exports = function(sequelize, DataTypes) {
         var Author = sequelize.define("Author", {
                 // Giving the Author model a name of type STRING
-                name: {
-                    type: DataTypes.STRING,
-                    allowNull: false,
-                    validate: {
-                        len: [1]
-                    }
-                },
                 username: {
                     type: DataTypes.STRING,
-                    len: [4, 25],
+                    len: [1, 25],
                 },
                 password: {
                     type: DataTypes.STRING,
-                    len: [6, 15],
+                    len: [1, 15],
                 }
             },
             // Here we'll pass a second "classMethods" object into the define method
