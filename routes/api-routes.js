@@ -7,7 +7,7 @@
 
 // Requiring our Todo model
 var db = require("../models");
-
+var bcrypt = require('bcryptjs');
 // Routes
 // =============================================================
 
@@ -121,22 +121,28 @@ module.exports = function(app) {
         app.post('/login', function(req, res) {
             db.Author.findOne({
                 where: {
-                    username: req.body.user,
-                    password: req.body.pass
-                }.then(function(data) {
+                    username: req.body.user
+                }
+            }).then(function(data) {
+                bcrypt.compare(req.body.pass, data.password, function(err, res) {
                     res.json(data);
+                });
 
-                })
-            });
-        })
+            })
+        });
 
         app.post('/register', function(req, res) {
-            db.Author.create({
-                username: req.body.username,
-                password: req.body.password,
-                email: req.body.email,
-            }).then(function(data) {
-                res.json(data);
+            bcrypt.genSalt(10, function(err, salt) {
+                bcrypt.hash(req.body.password, salt, function(err, hash) {
+                                // Store hash in your password DB. 
+                    db.Author.create({
+                        username: req.body.username,
+                        password: hash,
+                        email: req.body.email,
+                    }).then(function(data) {
+                        res.json(data);
+                    });
+                });
             });
         });
     }
