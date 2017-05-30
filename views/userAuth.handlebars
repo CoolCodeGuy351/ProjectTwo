@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>project two</title>
+    <title>Log In</title>
     <meta charset="utf-8">
 
 <!-- auth0 user authenticatio script -->
@@ -34,7 +34,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a href="#" class="navbar-brand">projectTWO!</a>
+                <a href="#" class="navbar-brand">Log In</a>
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                
@@ -45,7 +45,7 @@
 
         <h1 id="title-line"">One Sentence Stories</h1>
         <!-- Button 1 Modal -->
-        <a href="#" class="login-text" data-toggle="modal" data-target="#login-modal">Login</a>
+        <button id="logButton"><a href="#" class="login-text" data-toggle="modal" data-target="#login-modal">Login</a></button>
           <!-- Modal -->
         <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
             <div class="modal-dialog">
@@ -62,7 +62,7 @@
         </div>
 
         <!-- Register -->
-        <a href="#" class="login-text" data-toggle="modal" data-target="#register-modal">Register</a>
+        <button id = "regButton"><a href="#" class="login-text" data-toggle="modal" data-target="#register-modal">Register</a></button>
           <!-- Modal -->
         <div class="modal fade" id="register-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
             <div class="modal-dialog">
@@ -72,7 +72,7 @@
                     <input type="text" id="username" placeholder="Username">
                     <input type="text" id="email" placeholder="Email">
                     <input type="password" id="password" placeholder="Password">
-                    <input type="submit" id="register" class="login loginmodal-submit" value="Login">
+                    <input type="submit" id="register" class="login loginmodal-submit" value="Register">
                   </form>
                     
 
@@ -82,5 +82,16 @@
           
     </div> <!-- End Col ( section ) -->
 <script src="/js/userAuth.js"></script>
+<style type="text/css">
+    #logButton {
+        color: #d7dee8;
+        border-radius: 8px;
+
+    }
+    #regButton {
+        color: #d7dee8;
+        border-radius: 8px;
+    }
+</style>
 </body>
 </html>
