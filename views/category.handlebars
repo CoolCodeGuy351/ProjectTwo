@@ -48,47 +48,6 @@
         <ul class = "category-name-container"></ul>
     </div>
     <br>
-    <!-- row that contains all information for top four: -->
-<!--     <div class="row text-center">
-        <h3 align="center">Top Four in {{catName}}</h3>
-        <div class="top-4-list" align="center"> -->
-<!-- 
-        {{#each top4}}
-            <div class="col-sm-3">
-                <h2><strong>{{this.title}} </strong></h2>
-                <h4><strong>{{this.summary}}</strong></h4>
-                    <br>
-            </div>
-        {{/each}}
- -->
-  <!--           <div class="col-lg-3">
-                <ul>
-                    <li>item one</li>
-                    <li>here we will display the the text that is related to the item , the short summary that is entered by the user</li>
-                </ul>
-            </div>
-            <div class="col-lg-3">
-                <ul>
-                    <li>item two</li>
-                    <li>here we will display the the text that is related to the item , the short summary that is entered by the user</li>
-                </ul>
-            </div>
-            <div class="col-lg-3">
-                <ul>
-                    <li>item three</li>
-                    <li>here we will display the the text that is related to the item , the short summary that is entered by the user</li>
-                </ul>
-            </div>
-            <div class="col-lg-3">
-                <ul>
-                    <li>item four</li>
-                    <li>here we will display the the text that is related to the item , the short summary that is entered by the user</li>
-                </ul>
-            </div>
-        </div>
-    </div> -->
-    <!-- end row top four: -->
-
     <div class="row text-center">
         <div class="col-sm-3">
         </div>
@@ -118,18 +77,14 @@
 
             <!-- every time we add a new post, we need to make jquery post the following below -->
             <div class="col-sm-8">
-                <!-- the each in handlebars will only loop through arrays -->
-                     {{#each categoryNameData}}
+
+                     {{#each data}}
                      <!-- title and summary grabbed from html-routes -->
-                <h2><strong>{{title}} </strong></h2>
-                <h4><strong>{{summary}}</strong></h4>
+                <h2><strong>{{this.title}} </strong></h2>
+                <h4><strong>{{this.summary}}</strong></h4>
                     <br>
                     {{/each}}
-                    <!-- second hard coded example that would be created dynamically -->
-                <h2><strong>animal farm </strong></h2>
-                <h4><strong>orwell illustrated that communism fails and involves several different animals and makes it an easy and digestable read for stupid people</strong></h4>
             </div>
-            <!-- end of new creation -->
             <div class="col-sm-2"></div>
         </div>
     </div>
