@@ -93,8 +93,8 @@ module.exports = function(app) {
             db.Summary.create({
                     title: req.body.title,
                     summary: req.body.summary,
-                    CategoryId: req.body.catName,
-                    AuthorId
+                    // CategoryId: req.body.catName,
+                    // AuthorId: req.body.AuthorId
                 })
                 .then(function() {
                     res.redirect('/home');
@@ -128,47 +128,67 @@ module.exports = function(app) {
         });
 
 
-        app.post('/register', function(req, res) {
-            db.Author.create({
-                username: req.body.username,
-                password: req.body.password
-            }).then(function() {
-              console.log("HERE")
-                    res.redirect('/home');
+
+
+
+        // =============================================================
+        //                  LOGIN
+        // =============================================================
+
+        // on sign in. going to have to create a link from the login that links to the homepage on the submit click
+        // make an if/else statement to send the user an error message or page if they mess up on the sign in.
+        app.get('/login', function(req, res) {
+                    db.Author.findOne({
+                        where: {
+                            username: req.body.username,
+                            password: req.body.password
+                        }.then(function() {
+                            res.redirect('/home');
+                        })
+                    });
+                })
+
+
+                app.post('/register', function(req, res) {
+                    db.Author.create({
+                        username: req.body.username,
+                        password: req.body.password,
+                        email: req.body.email,
+                    }).then(function() {
+                        res.redirect('/home');
+                    });
                 });
-        });
-
-    }
-    // end of module.exports
+            }
+            // end of module.exports
 
 
-//on submit button
+        //on submit button
 
-// var syllables = [],
-// var syllableCount = 0
-// for (var i = 0; i < syllables.length; i++) {
-// var queryURL = "https://wordsapiv1.p.mashape.com/words/" + syllables[i] + "/syllables";
-// $.ajax({
-//   url: queryURL,
-//   method: "GET"
-//   }).done(function (syllables) {
-//     console.log(syllables.syllables.count)
-//     syllableCount += syllables.syllables.count
-//   })
+        // var syllables = [],
+        // var syllableCount = 0
+        // for (var i = 0; i < syllables.length; i++) {
+        // var queryURL = "https://wordsapiv1.p.mashape.com/words/" + syllables[i] + "/syllables";
+        // $.ajax({
+        //   url: queryURL,
+        //   method: "GET"
+        //   }).done(function (syllables) {
+        //     console.log(syllables.syllables.count)
+        //     syllableCount += syllables.syllables.count
+        //   })
 
-//   if (syllableCount === 14) {
-//      db.Summary.create({
-//               title: req.body.title,
-//               summary: req.body.summary
-//           })
-//           .then(function() {
-//               res.redirect('/category');
-//           });
-//   } else {
-// console.log("This isn't 14 syllables, try again")
-// }
+        //   if (syllableCount === 14) {
+        //      db.Summary.create({
+        //               title: req.body.title,
+        //               summary: req.body.summary
+        //           })
+        //           .then(function() {
+        //               res.redirect('/category');
+        //           });
+        //   } else {
+        // console.log("This isn't 14 syllables, try again")
+        // }
 
-// }
+        // }
 
 
-// }
+        // }
