@@ -91,11 +91,11 @@
         <form class="create-update-form" action="/post" method="POST">
         <div class="col-sm-6">                       
             <div class="form-group text-left">
-                <label for="title">Name:</label>
+                <label for="title">Name of {{catName}}:</label>
                 <input type="text" class="form-control" id="userImputTitle" name="title">
             </div>
             <div class="form-group text-left">
-                <label for="summary">Summary</label>
+                <label for="summary">Summary:</label>
                 <input type="text" class="form-control" id="userImputSummary" name="summary">
                 <input type="hidden" class="form-control" id="catName" name="categName" value="{{catName}}">
             </div>
@@ -110,9 +110,14 @@
     <div class="container-fluid bg-grey">
         <div class="row text-center">
             <div class="col-sm-2"></div>
-            <!-- every time we add a new post, it needs to be be dynamically and displayed here. we will display last ten submitted summaries, -->
+
+
+            <!-- every time we add a new post, we need to make jquery post the following below -->
+
+
             <div class="col-sm-8">
                      {{#each categoryNameData}}
+                     <!-- title and summary grabbed from html-routes -->
                 <h2><strong>{{title}} </strong></h2>
                 <h4><strong>{{summary}}</strong></h4>
                     <br>
