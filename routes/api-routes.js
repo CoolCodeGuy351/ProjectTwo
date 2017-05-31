@@ -35,14 +35,14 @@ module.exports = function(app) {
     });
 
     //Still not working
-    app.get("/search", function(req, res) {
+    app.post("/search", function(req, res) {
         db.Summary.findAll({
             where: {
                 title: req.body.searchValue
             },
             limit: 5
         }).then(function(allData) {
-            console.log(req.body, req.body.searchValue)
+            console.log(allData)
             res.render("getOne", {
                 data: allData,
             });

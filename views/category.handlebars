@@ -33,7 +33,7 @@
            
 
             <!-- search bar NEEDS MORE WORK -->
-        <form class="create-update-form form-group" action="/search" method="GET">
+        <form class="create-update-form form-group" action="/search" method="POST">
             <span class= "col-md-2 col-sm-2 col-xs-2 nav navbar-nav text-center">
                 <input type="text" class="form-control" id="searchInput" name="searchValue" placeholder="Search">
             </span>
@@ -42,8 +42,8 @@
                     <button type="submit" id= "searchInputButton" class="btn btn-default">Submit</button> 
                <!--  </a> -->
             </span>
-            </span>
         </form>
+            </span>
             <!--Need to figure the search bar Up til here  -->
 
         </div>
@@ -86,9 +86,11 @@
                      {{#each data}}
                      <!-- title and summary grabbed from html-routes -->
                 <!-- <a href="/comment"> -->
-                <div class="panel panel-primary" value="summary_{{this.id}}"><h2><strong>{{this.title}} </strong></h2>
+                <div class="panel panel-primary" ><h2><strong>{{this.title}} </strong></h2>
                <!--  </a> -->
                 <div class="panel-body"><h4><strong>{{this.summary}}</strong></h4></div>
+                <!-- <div class="panel-body"><h4><strong>Written By: {{this.author}}</strong></h4></div> -->
+
                 </div>
                     <br>
                     {{/each}}

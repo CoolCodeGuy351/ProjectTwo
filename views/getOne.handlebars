@@ -40,13 +40,15 @@
         </div>
     </nav>
 
+<br><br><br>
 
-    <div class="col-sm-8 panel-group">
+    <div class="col-sm-12 panel-group">
 
         {{#each data}}
         <!-- title and summary grabbed from html-routes -->
-            <div class="panel panel-primary"><h2><strong>{{this.title}} </strong></h2>
-            <div class="panel-body"><h4><strong>{{this.summary}}</strong></h4></div>
+
+                <div class="panel panel-primary text-center" value="summary_{{this.id}}"><h2><strong>{{this.title}} </strong></h2>
+                <div class="panel-body text-center"><h4><strong>{{this.summary}}</strong></h4></div>
             </div>
         <br>
             {{/each}}
