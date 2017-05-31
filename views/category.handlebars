@@ -16,34 +16,34 @@
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
 
     <nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container in-line">
-            <div class="collapse navbar-collapse" id="myNavbar">
-                <ul class="nav navbar-nav text-center">
+        <div class="container col-md-12 col-sm-12 col-xs-12">
+            <span class="collapse navbar-collapse" id="myNavbar">
+                <ul class="col-md-2 col-sm-3 col-xs-3 nav navbar-nav text-center">
                 <!-- homepage button -->
-                    <div class="form-control">
+                    <span class="form-control">
                         <a href="/home">
-                        <p><strong>homepage</strong></p></a>
-                     </div>
+                        <p><strong>Homepage</strong></p></a>
+                     </span>
                 </ul>
-            </div> 
-            <!-- search bar -->
-            <div class= "in-line">
-                    <ul class="nav navbar-nav navbar-right">
-                    <input type="text" class="form-control" placeholder="Search">
-                    <a href="/search"><button type="submit" class="btn btn-default" name="search">Submit</button></a>
-                    </ul>
-           </div>
               <!-- displayed name -->
-            <div class="row text-center in-line">
-                    <div class="col-lg-5"> </div>
-                   
-                    <div class="col-lg-2">
+              <span class="col-md-3 col-sm-1 col-xs-1"></span>
+                    <span class="col-md-3 col-sm-3 col-xs-3">
                         <h1>{{catName}}</h1>
-                    </div>
-                    <div class="col-lg-5"></div>
-            </div>
+                    </span>
+            <!-- search bar -->
+            <span class= "col-md-2 col-sm-2 col-xs-2 nav navbar-nav text-center">
+                <input type="text" class="form-control" placeholder="Search">
+                </span>
+            <span class= "col-md-2 col-sm-2 col-xs-2 nav navbar-nav">
+                <a href="/search"><button type="submit" class="btn btn-default" name="search">Submit</button></a>
+            </span>
+            </span>
         </div>
     </nav>
+
+
+
+
     <div class="jumbotron text-center" id="background">
         <ul class = "category-name-container"></ul>
     </div>
