@@ -30,7 +30,7 @@ module.exports = function(app) {
             }
         }).then(function(allData) {
             res.render("category", {
-                catName: req.params.threeCategories == 1 ? 'movies' : req.params.threeCategories == 2 ? 'books' : 'people',
+                catName: req.params.threeCategories == 1 ? 'Movies' : req.params.threeCategories == 2 ? 'Books' : 'People',
                 data: allData,
                 // catTopFour: 
                 // categoryNameData: [{ title: "api title string", summary: "api summary string" }]
