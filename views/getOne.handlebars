@@ -1,0 +1,53 @@
+<head>
+    <title>project two</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <!-- google fonts "Montserrat" and "Lato" -->
+    <link rel="stylesheet" type="text/css" href="/css/styleCategory.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/main.js"></script>
+</head>
+
+
+
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container col-md-12 col-sm-12 col-xs-12">
+            <span class="collapse navbar-collapse" id="myNavbar">
+                <ul class="col-md-2 col-sm-3 col-xs-3 nav navbar-nav text-center">
+                <!-- homepage button -->
+                    <span class="form-control">
+                        <a href="/home">
+                        <p><strong>Homepage</strong></p></a>
+                     </span>
+                </ul>
+              <!-- displayed name -->
+              <span class="col-md-6 col-sm-4 col-xs-4"></span>
+            <!-- search bar -->
+            <span class= "col-md-2 col-sm-2 col-xs-2 nav navbar-nav text-center">
+                <input type="text" class="form-control" placeholder="Search">
+                </span>
+            <span class= "col-md-2 col-sm-2 col-xs-2 nav navbar-nav">
+                <a href="/search"><button type="submit" class="btn btn-default" name="search">Submit</button>
+                </a>
+            </span>
+            </span>
+        </div>
+    </nav>
+
+
+    <div class="col-sm-8 panel-group">
+
+        {{#each data}}
+        <!-- title and summary grabbed from html-routes -->
+            <div class="panel panel-primary"><h2><strong>{{this.title}} </strong></h2>
+            <div class="panel-body"><h4><strong>{{this.summary}}</strong></h4></div>
+            </div>
+        <br>
+            {{/each}}
+    </div>
